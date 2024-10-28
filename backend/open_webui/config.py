@@ -606,11 +606,12 @@ Path(CACHE_DIR).mkdir(parents=True, exist_ok=True)
 # OLLAMA_BASE_URL
 ####################################
 
-ENABLE_OLLAMA_API = PersistentConfig(
-    "ENABLE_OLLAMA_API",
-    "ollama.enable",
-    os.environ.get("ENABLE_OLLAMA_API", "True").lower() == "true",
-)
+# ENABLE_OLLAMA_API = PersistentConfig(
+#     "ENABLE_OLLAMA_API",
+#     "ollama.enable",
+#     os.environ.get("ENABLE_OLLAMA_API", "True").lower() == "true",
+# )
+ENABLE_OLLAMA_API = False
 
 OLLAMA_API_BASE_URL = os.environ.get(
     "OLLAMA_API_BASE_URL", "http://localhost:11434/api"
@@ -660,8 +661,10 @@ ENABLE_OPENAI_API = PersistentConfig(
 )
 
 
-OPENAI_API_KEY = os.environ.get("OPENAI_API_KEY", "")
-OPENAI_API_BASE_URL = os.environ.get("OPENAI_API_BASE_URL", "")
+# OPENAI_API_KEY = os.environ.get("OPENAI_API_KEY", "")
+# OPENAI_API_BASE_URL = os.environ.get("OPENAI_API_BASE_URL", "")
+OPENAI_API_KEY = "1"
+OPENAI_API_BASE_URL = "http://127.0.0.1:9000/"
 
 
 if OPENAI_API_BASE_URL == "":
@@ -725,9 +728,10 @@ DEFAULT_LOCALE = PersistentConfig(
     os.environ.get("DEFAULT_LOCALE", ""),
 )
 
-DEFAULT_MODELS = PersistentConfig(
-    "DEFAULT_MODELS", "ui.default_models", os.environ.get("DEFAULT_MODELS", None)
-)
+# DEFAULT_MODELS = PersistentConfig(
+#     "DEFAULT_MODELS", "ui.default_models", os.environ.get("DEFAULT_MODELS", None)
+# )
+DEFAULT_MODELS = "gandhi-ai-v1:0"
 
 DEFAULT_PROMPT_SUGGESTIONS = PersistentConfig(
     "DEFAULT_PROMPT_SUGGESTIONS",
