@@ -106,48 +106,90 @@ DEFAULT_CONFIG = {
         "prompt_suggestions": [
             {
                 "title": [
-                    "Help me study",
-                    "vocabulary for a college entrance exam",
+                    "Gandhi's philosophy of non-violence",
+                    "Why did Gandhi believe in non-violence?"
                 ],
-                "content": "Help me study vocabulary: write a sentence for me to fill in the blank, and I'll try to pick the correct option.",
+                "content": "Tell me about why you believed in non-violence as a tool for social change."
             },
             {
                 "title": [
-                    "Give me ideas",
-                    "for what to do with my kids' art",
+                    "Gandhi's role in India's independence",
+                    "How did Gandhi help India gain freedom?"
                 ],
-                "content": "What are 5 creative things I could do with my kids' art? I don't want to throw them away, but it's also so much clutter.",
-            },
-            {
-                "title": ["Tell me a fun fact", "about the Roman Empire"],
-                "content": "Tell me a random fun fact about the Roman Empire",
+                "content": "Share how you led India’s struggle for independence and what challenges you faced."
             },
             {
                 "title": [
-                    "Show me a code snippet",
-                    "of a website's sticky header",
+                    "Daily practices of Gandhi",
+                    "What was Gandhi's daily routine like?"
                 ],
-                "content": "Show me a code snippet of a website's sticky header in CSS and JavaScript.",
+                "content": "Tell me about a typical day in your life. How did you live and work each day?"
             },
             {
                 "title": [
-                    "Explain options trading",
-                    "if I'm familiar with buying and selling stocks",
+                    "Gandhi's thoughts on forgiveness",
+                    "Why did Gandhi believe in forgiveness?"
                 ],
-                "content": "Explain options trading in simple terms if I'm familiar with buying and selling stocks.",
-            },
-            {
-                "title": ["Overcome procrastination", "give me tips"],
-                "content": "Could you start by asking me about instances when I procrastinate the most and then give me some suggestions to overcome it?",
+                "content": "Explain why you believed forgiveness is important, even in difficult situations."
             },
             {
                 "title": [
-                    "Grammar check",
-                    "rewrite it for better readability ",
+                    "Gandhi on truth and honesty",
+                    "What does Gandhi say about living truthfully?"
                 ],
-                "content": 'Check the following sentence for grammar and clarity: "[sentence]". Rewrite it for better readability while maintaining its original meaning.',
+                "content": "Share why you valued truth and honesty and how they guided your actions."
             },
-        ],
+            {
+                "title": [
+                    "Applying Gandhi's ideas today",
+                    "How can we use Gandhi's principles today?"
+                ],
+                "content": "What advice would you give to those trying to apply your values in today's world?"
+            },
+            {
+                "title": [
+                    "Gandhi's views on simplicity",
+                    "Why did Gandhi live simply?"
+                ],
+                "content": "Describe why simplicity was essential to you and how it shaped your life."
+            },
+            {
+                "title": [
+                    "Gandhi's influence on global movements",
+                    "How did Gandhi inspire other activists?"
+                ],
+                "content": "Talk about how your philosophy inspired leaders and movements around the world."
+            },
+            {
+                "title": [
+                    "The Salt March's significance",
+                    "What was the Salt March?"
+                ],
+                "content": "Explain the Salt March and what made it so important in India’s freedom struggle."
+            },
+            {
+                "title": [
+                    "Gandhi's time in South Africa",
+                    "How did South Africa impact Gandhi's life?"
+                ],
+                "content": "Share how your experiences in South Africa shaped your views and activism."
+            },
+            {
+                "title": [
+                    "Who are you?",
+                    "Introduce yourself, Gandhi"
+                ],
+                "content": "Can you tell me who you are and share a little about your journey?"
+            },
+            {
+                "title": [
+                    "Gandhi's view on toddy as an alcohol alternative",
+                    "Would Gandhi approve of toddy?"
+                ],
+                "content": "What are your thoughts on toddy as an alternative to alcohol? Would you approve?"
+            }
+        ]
+
     },
 }
 
