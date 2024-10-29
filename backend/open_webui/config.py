@@ -603,7 +603,7 @@ ENABLE_OPENAI_API = PersistentConfig(
 
 
 OPENAI_API_KEY = ""
-OPENAI_API_BASE_URL = "http://127.0.0.1:9000"
+OPENAI_API_BASE_URL = "http://host.docker.internal:9000"
 
 OPENAI_API_KEYS = [OPENAI_API_KEY]
 OPENAI_API_KEYS = PersistentConfig(
