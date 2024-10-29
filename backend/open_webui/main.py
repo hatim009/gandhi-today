@@ -920,7 +920,6 @@ async def get_all_models():
     open_webui_models = []
     openai_models = []
     ollama_models = []
-
     if app.state.config.ENABLE_OPENAI_API:
         openai_models = await get_openai_models()
         openai_models = openai_models["data"]

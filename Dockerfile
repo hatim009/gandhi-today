@@ -31,12 +31,7 @@ RUN npm ci
 
 COPY . .
 ENV APP_BUILD_HASH=${BUILD_HASH}
-ENV WEBUI_AUTH=False
-ENV DEFAULT_MODELS="gandhi-ai-v1:0"
-ENV WEBUI_NAME="Gandhi Today"
-ENV ENABLE_OLLAMA_API=False
-ENV OPENAI_API_BASE_URL="http://127.0.0.1:9000/"
-ENV OPENAI_API_KEY="1"
+
 ENV NODE_OPTIONS="--max-old-space-size=4096"
 RUN npm run build
 

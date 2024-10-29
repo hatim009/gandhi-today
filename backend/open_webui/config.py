@@ -105,90 +105,32 @@ DEFAULT_CONFIG = {
         "default_locale": "",
         "prompt_suggestions": [
             {
-                "title": [
-                    "Gandhi's philosophy of non-violence",
-                    "Why did Gandhi believe in non-violence?"
-                ],
-                "content": "Tell me about why you believed in non-violence as a tool for social change."
+                "title": ["Give your perspective", "on solving conflicts between Russia and Ukraine without using violence"],
+                "content": "Provide a actionable framework for resolving the Russia and Ukraine conflict through non-violent means. Consider current geopolitical dynamics and cultural sensitivities while maintaining consistency with Gandhian principles.",
+            },
+            {
+                "title": ["Help me understand", "how non-violent resistance can work against modern oppression"],
+                "content": "Explain how non-violent resistance methods can be adapted for the digital age. Provide concrete examples of successful modern non-violent movements, analyze their strategies, and outline specific tactics that would work against contemporary forms of oppression. Address both physical and digital forms of peaceful resistance.",
+            },
+            {
+                "title": ["Explain how to", "unite people across religious differences in today's divided world"],
+                "content": "Address interfaith harmony in our modern context. Provide practical steps for building bridges between different religious communities, incorporating social media and global connectivity. Include specific examples of successful interfaith initiatives and how to scale them.",
+            },
+            {
+                "title": ["Give advice on", "practicing civil disobedience effectively in the digital age"],
+                "content": "Explain how civil disobedience can be effectively practiced in today's interconnected world. Include guidelines for both online and offline peaceful protest methods, discuss legal implications, and provide strategies for maintaining non-violent discipline in the face of opposition.",
             },
             {
                 "title": [
-                    "Gandhi's role in India's independence",
-                    "How did Gandhi help India gain freedom?"
-                ],
-                "content": "Share how you led India’s struggle for independence and what challenges you faced."
+                    "Help create a pathway", "to achieve true independence from economic colonialism"],
+                "content": "Drawing from Gandhi's principles of economic self-reliance (Swadeshi), outline a concrete plan for developing nations to achieve economic independence. Address modern challenges like digital currencies, multinational corporations, and global supply chains while maintaining ethical principles.",
             },
             {
-                "title": [
-                    "Daily practices of Gandhi",
-                    "What was Gandhi's daily routine like?"
-                ],
-                "content": "Tell me about a typical day in your life. How did you live and work each day?"
+                "title": ["Overcome procrastination", "give me tips"],
+                "content":"How to overcome procrastination and inactivity in this digital age using your techniques",
             },
-            {
-                "title": [
-                    "Gandhi's thoughts on forgiveness",
-                    "Why did Gandhi believe in forgiveness?"
-                ],
-                "content": "Explain why you believed forgiveness is important, even in difficult situations."
-            },
-            {
-                "title": [
-                    "Gandhi on truth and honesty",
-                    "What does Gandhi say about living truthfully?"
-                ],
-                "content": "Share why you valued truth and honesty and how they guided your actions."
-            },
-            {
-                "title": [
-                    "Applying Gandhi's ideas today",
-                    "How can we use Gandhi's principles today?"
-                ],
-                "content": "What advice would you give to those trying to apply your values in today's world?"
-            },
-            {
-                "title": [
-                    "Gandhi's views on simplicity",
-                    "Why did Gandhi live simply?"
-                ],
-                "content": "Describe why simplicity was essential to you and how it shaped your life."
-            },
-            {
-                "title": [
-                    "Gandhi's influence on global movements",
-                    "How did Gandhi inspire other activists?"
-                ],
-                "content": "Talk about how your philosophy inspired leaders and movements around the world."
-            },
-            {
-                "title": [
-                    "The Salt March's significance",
-                    "What was the Salt March?"
-                ],
-                "content": "Explain the Salt March and what made it so important in India’s freedom struggle."
-            },
-            {
-                "title": [
-                    "Gandhi's time in South Africa",
-                    "How did South Africa impact Gandhi's life?"
-                ],
-                "content": "Share how your experiences in South Africa shaped your views and activism."
-            },
-            {
-                "title": [
-                    "Who are you?",
-                    "Introduce yourself, Gandhi"
-                ],
-                "content": "Can you tell me who you are and share a little about your journey?"
-            },
-            {
-                "title": [
-                    "Gandhi's view on toddy as an alcohol alternative",
-                    "Would Gandhi approve of toddy?"
-                ],
-                "content": "What are your thoughts on toddy as an alternative to alcohol? Would you approve?"
-            }
-        ]
+        ],
+
 
     },
 }
@@ -609,7 +551,7 @@ Path(CACHE_DIR).mkdir(parents=True, exist_ok=True)
 ENABLE_OLLAMA_API = PersistentConfig(
     "ENABLE_OLLAMA_API",
     "ollama.enable",
-    os.environ.get("ENABLE_OLLAMA_API", "True").lower() == "true",
+    os.environ.get("ENABLE_OLLAMA_API", "False").lower() == "true",
 )
 
 OLLAMA_API_BASE_URL = os.environ.get(
@@ -660,44 +602,18 @@ ENABLE_OPENAI_API = PersistentConfig(
 )
 
 
-OPENAI_API_KEY = os.environ.get("OPENAI_API_KEY", "")
-OPENAI_API_BASE_URL = os.environ.get("OPENAI_API_BASE_URL", "")
+OPENAI_API_KEY = ""
+OPENAI_API_BASE_URL = "http://127.0.0.1:9000"
 
-
-if OPENAI_API_BASE_URL == "":
-    OPENAI_API_BASE_URL = "https://api.openai.com/v1"
-
-OPENAI_API_KEYS = os.environ.get("OPENAI_API_KEYS", "")
-OPENAI_API_KEYS = OPENAI_API_KEYS if OPENAI_API_KEYS != "" else OPENAI_API_KEY
-
-OPENAI_API_KEYS = [url.strip() for url in OPENAI_API_KEYS.split(";")]
+OPENAI_API_KEYS = [OPENAI_API_KEY]
 OPENAI_API_KEYS = PersistentConfig(
     "OPENAI_API_KEYS", "openai.api_keys", OPENAI_API_KEYS
 )
 
-OPENAI_API_BASE_URLS = os.environ.get("OPENAI_API_BASE_URLS", "")
-OPENAI_API_BASE_URLS = (
-    OPENAI_API_BASE_URLS if OPENAI_API_BASE_URLS != "" else OPENAI_API_BASE_URL
-)
-
-OPENAI_API_BASE_URLS = [
-    url.strip() if url != "" else "https://api.openai.com/v1"
-    for url in OPENAI_API_BASE_URLS.split(";")
-]
+OPENAI_API_BASE_URLS = [OPENAI_API_BASE_URL]
 OPENAI_API_BASE_URLS = PersistentConfig(
     "OPENAI_API_BASE_URLS", "openai.api_base_urls", OPENAI_API_BASE_URLS
 )
-
-OPENAI_API_KEY = ""
-
-try:
-    OPENAI_API_KEY = OPENAI_API_KEYS.value[
-        OPENAI_API_BASE_URLS.value.index("https://api.openai.com/v1")
-    ]
-except Exception:
-    pass
-
-OPENAI_API_BASE_URL = "https://api.openai.com/v1"
 
 ####################################
 # WEBUI
@@ -726,7 +642,7 @@ DEFAULT_LOCALE = PersistentConfig(
 )
 
 DEFAULT_MODELS = PersistentConfig(
-    "DEFAULT_MODELS", "ui.default_models", os.environ.get("DEFAULT_MODELS", None)
+    "DEFAULT_MODELS", "ui.default_models", os.environ.get("DEFAULT_MODELS", "gandhi-ai-v1:0")
 )
 
 DEFAULT_PROMPT_SUGGESTIONS = PersistentConfig(
@@ -734,33 +650,31 @@ DEFAULT_PROMPT_SUGGESTIONS = PersistentConfig(
     "ui.prompt_suggestions",
     [
         {
-            "title": ["Help me study", "vocabulary for a college entrance exam"],
-            "content": "Help me study vocabulary: write a sentence for me to fill in the blank, and I'll try to pick the correct option.",
+            "title": ["Give your perspective", "on solving conflicts between Russia and Ukraine without using violence"],
+            "content": "Provide a actionable framework for resolving the Russia and Ukraine conflict through non-violent means. Consider current geopolitical dynamics and cultural sensitivities while maintaining consistency with Gandhian principles.",
         },
         {
-            "title": ["Give me ideas", "for what to do with my kids' art"],
-            "content": "What are 5 creative things I could do with my kids' art? I don't want to throw them away, but it's also so much clutter.",
+            "title": ["Help me understand", "how non-violent resistance can work against modern oppression"],
+            "content": "Explain how non-violent resistance methods can be adapted for the digital age. Provide concrete examples of successful modern non-violent movements, analyze their strategies, and outline specific tactics that would work against contemporary forms of oppression. Address both physical and digital forms of peaceful resistance.",
         },
         {
-            "title": ["Tell me a fun fact", "about the Roman Empire"],
-            "content": "Tell me a random fun fact about the Roman Empire",
+            "title": ["Explain how to", "unite people across religious differences in today's divided world"],
+            "content": "Address interfaith harmony in our modern context. Provide practical steps for building bridges between different religious communities, incorporating social media and global connectivity. Include specific examples of successful interfaith initiatives and how to scale them.",
         },
         {
-            "title": ["Show me a code snippet", "of a website's sticky header"],
-            "content": "Show me a code snippet of a website's sticky header in CSS and JavaScript.",
+            "title": ["Give advice on", "practicing civil disobedience effectively in the digital age"],
+            "content": "Explain how civil disobedience can be effectively practiced in today's interconnected world. Include guidelines for both online and offline peaceful protest methods, discuss legal implications, and provide strategies for maintaining non-violent discipline in the face of opposition.",
         },
         {
             "title": [
-                "Explain options trading",
-                "if I'm familiar with buying and selling stocks",
-            ],
-            "content": "Explain options trading in simple terms if I'm familiar with buying and selling stocks.",
+                "Help create a pathway", "to achieve true independence from economic colonialism"],
+            "content": "Drawing from Gandhi's principles of economic self-reliance (Swadeshi), outline a concrete plan for developing nations to achieve economic independence. Address modern challenges like digital currencies, multinational corporations, and global supply chains while maintaining ethical principles.",
         },
         {
             "title": ["Overcome procrastination", "give me tips"],
-            "content": "Could you start by asking me about instances when I procrastinate the most and then give me some suggestions to overcome it?",
+            "content":"How to overcome procrastination and inactivity in this digital age using your techniques",
         },
-    ],
+        ],
 )
 
 DEFAULT_USER_ROLE = PersistentConfig(
